@@ -4,6 +4,7 @@ import { getProducts } from '../../services/ApiServices'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { useNavigate } from 'react-router-dom'
 import './products.css'
+import Scrollup from '../scrollup/Scrollup'
 
 function Products () {
   const [data, setData] = useState([])
@@ -89,6 +90,7 @@ function Products () {
           {loading ? <Loading /> : <ShowProducts />}
         </div>
       </div>
+      <Scrollup />
     </div>
   )
 }

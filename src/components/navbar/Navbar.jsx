@@ -14,6 +14,10 @@ function Navbar () {
   }
 
   useEffect(() => {
+    setSizeWidth(1200)
+  }, [])
+
+  useEffect(() => {
     window.addEventListener('resize', handleSizeWidth)
     return () => {
       window.removeEventListener('resize', handleSizeWidth)
@@ -28,15 +32,33 @@ function Navbar () {
   const quantity = context.cart.reduce((acc, curr) => {
     return acc + curr.quantity
   }, 0)
-
-  const handleSize = () => {
-    console.log(document.documentElement.clientWidth)
-  }
   console.log(sizeWidth)
+
+  const ShowBtn = () => {
+    return (
+      <>
+        <Link to='/login' className='btn btn-outline-dark'>
+          <i className='bx bxs-log-in me-1' />Login
+        </Link>
+        <Link to='/signup' className='btn btn-outline-dark ms-2'>
+          <i className='bx bxs-user-plus' />Signup
+        </Link>
+        <Link to='/cart' className='btn btn-outline-dark ms-2'>
+          <i className='bx bxs-cart' />Cart ({quantity})
+        </Link>
+      </>
+    )
+  }
+
+  const ShowNon = () => {
+    return (
+      <div />
+    )
+  }
 
   return (
     <header className='header'>
-      <nav className='nav container' onResize={() => { handleSize() }}>
+      <nav className='nav container'>
         <Link to='/' className='navbar-brand fw-bold fs-4'>E-Commer</Link>
         <div className={Toggle ? 'nav__menu show-menu' : 'nav__menu nav__2'}>
           <ul className='nav__list grid'>
@@ -53,26 +75,19 @@ function Navbar () {
               <Link className={activeNav === 'contact' ? 'nav__link fw-bold' : 'nav__link'} onClick={() => setActiveNav('contact')} to='/contact'><i className='uil uil-message nav__icon' />Contact</Link>
             </li>
             <li className='nav-item'>
-              <Link className={sizeWidth > 1190 ? 'no__show2' : 'nav__link'} onClick={() => setActiveNav('contact')} to='/login'><i className='bx bxs-log-in nav__icon' />Login</Link>
+              <Link className={sizeWidth < 1190 ? 'nav__link' : 'no__show2'} onClick={() => setActiveNav('contact')} to='/login'><i className='bx bxs-log-in nav__icon' />Login</Link>
             </li>
             <li className='nav-item'>
-              <Link className={sizeWidth > 1190 ? 'no__show2' : 'nav__link'} onClick={() => setActiveNav('contact')} to='/signup'><i className='bx bxs-user-plus nav__icon' />Signup</Link>
+              <Link className={sizeWidth < 1190 ? 'nav__link' : 'no__show2'} onClick={() => setActiveNav('contact')} to='/signup'><i className='bx bxs-user-plus nav__icon' />Signup</Link>
             </li>
             <li className='nav-item'>
-              <Link className={sizeWidth > 1190 ? 'no__show2' : 'nav__link'} onClick={() => setActiveNav('contact')} to='/cart'><i className='bx bxs-cart nav__icon' />Cart({quantity})</Link>
+              <Link className={sizeWidth < 1190 ? 'nav__link' : 'no__show2'} onClick={() => setActiveNav('contact')} to='/cart'><i className='bx bxs-cart nav__icon' />Cart({quantity})</Link>
             </li>
           </ul>
           <div>
-            <Link to='/login' className={sizeWidth > 1190 ? 'btn btn-outline-dark' : 'no__show'}>
-              <i className='bx bxs-log-in me-1' />Login
-            </Link>
-            <Link to='/signup' className={sizeWidth > 1190 ? 'btn btn-outline-dark ms-2' : 'no__show'}>
-              <i className='bx bxs-user-plus' />Signup
-            </Link>
-            <Link to='/cart' className={sizeWidth > 1190 ? 'btn btn-outline-dark ms-2' : 'no__show'}>
-              <i className='bx bxs-cart' />Cart ({quantity})
-            </Link>
+            {sizeWidth > 1190 ? <ShowBtn /> : <ShowNon />}
           </div>
+          <div />
           <i className='uil uil-times nav__close' onClick={() => showMenu(!Toggle)} />
         </div>
         <div className='nav__toggle' onClick={() => showMenu(!Toggle)}>
