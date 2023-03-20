@@ -1,3 +1,11 @@
 .car__pointer {
     cursor: pointer;
 }
+
+@media screen and (max-width: 400px) {
+.categorys {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+}
+}

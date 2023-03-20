@@ -4,7 +4,13 @@ a {
     text-decoration: none;
     color: black;
  }
+
  .top {
-    margin-top: 10rem;
-    padding-top: 10rem;
+   margin-top: 7rem;
+ }
+ @media screen and (max-width: 400px) {
+    
+   .samll__screen {
+     margin-left: 1.5rem;
+   }
  }

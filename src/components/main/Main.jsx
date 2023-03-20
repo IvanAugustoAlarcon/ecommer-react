@@ -2,7 +2,7 @@ import './main.css'
 
 function Main () {
   return (
-    <div className='main mt-5'>
+    <div className='main mt-5 '>
       <div className='card text-bg-dark border-0 mt-5'>
         <img src='https://images.pexels.com/photos/6214476/pexels-photo-6214476.jpeg?auto=compress&cs=tinysrgb&w=1600' className='card-img' alt='...' height='650rem' />
         <div className='card-img-overlay'>
