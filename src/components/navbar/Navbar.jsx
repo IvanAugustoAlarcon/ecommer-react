@@ -11,6 +11,7 @@ function Navbar () {
 
   const handleSizeWidth = () => {
     setSizeWidth(window.innerWidth)
+    showMenu(false)
   }
 
   useEffect(() => {
