@@ -2,7 +2,7 @@ import React from 'react'
 
 function Login () {
   return (
-    <div className='container mt-5 pt-5'>
+    <div className='container  top'>
       <div className='row'>
         <div className='col-12 col-sm-8 col-md-5 m-auto'>
           <div className='card'>

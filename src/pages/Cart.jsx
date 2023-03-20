@@ -33,7 +33,7 @@ const Cart = () => {
   }
   return (
     <>
-      <div className='container'>
+      <div className='container pt-5'>
         {context.cart.map((cartItem) => (
           <div className='row-md-8 m-5 pt-5' key={cartItem.id}>
             <div className='row'>
