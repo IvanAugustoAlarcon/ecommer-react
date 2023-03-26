@@ -8,7 +8,7 @@ const Product = () => {
   const { id } = useParams()
   const [product, setProduct] = useState([])
   const [loading, setLoading] = useState(false)
-  const [category, setCategory] = useState([])
+  // const [category, setCategory] = useState([])
   const context = useCartContext()
 
   useEffect(() => {
@@ -16,13 +16,13 @@ const Product = () => {
     getProductById(id).then(async (data) => {
       const productData = await data
       setProduct(productData)
-      setCategory(productData.category)
+      // setCategory(productData.category)
       setLoading(false)
     })
   }, [])
   const addToCart = () => {
     const price = product.price
-    const image = product.images
+    const image = product.image
     const productName = product.title
     context.setCart((currentItems) => {
       const isItems = context.cart.find((item) => item.id === id)
@@ -54,11 +54,11 @@ const Product = () => {
     return (
       <>
         <div className='col-md-6'>
-          <img src={product.images} height='400px' width='400px' />
+          <img src={product.image} height='400px' width='400px' />
         </div>
         <div className='col-md-6'>
           <h4 className='text-uppercase text-black-50'>
-            {category.name}
+            {product.category}
           </h4>
           <h1 className='display-5'>{product.title}</h1>
           <h3 className='display-6 fw-bold my-4'>
