@@ -56,7 +56,7 @@ function Products () {
       <>
         <div className='buttons d-flex justify-content-center mb-5 pb-5 categorys'>
           <button className={activeNav === 'all' ? 'btn btn-dark me-2' : ' btn btn-outline-dark me-2'} onClick={() => { setFilter(data); setActiveNav('all') }}>All</button>
-          <button className={activeNav === 'women' ? 'btn btn-dark me-2' : ' btn btn-outline-dark me-2'} onClick={() => { handleProductFilter('women\'s clothing'); setActiveNav('woman') }}>Women's Clothes</button>
+          <button className={activeNav === 'women' ? 'btn btn-dark me-2' : ' btn btn-outline-dark me-2'} onClick={() => { handleProductFilter('women\'s clothing'); setActiveNav('women') }}>Women's Clothes</button>
           <button className={activeNav === 'men' ? 'btn btn-dark me-2' : ' btn btn-outline-dark me-2'} onClick={() => { handleProductFilter('men\'s clothing'); setActiveNav('men') }}>Men's Clothes</button>
           <button className={activeNav === 'jewelry' ? 'btn btn-dark me-2' : ' btn btn-outline-dark me-2'} onClick={() => { handleProductFilter('jewelery'); setActiveNav('jewelry') }}>Jewelry</button>
           <button className={activeNav === 'electronics' ? 'btn btn-dark me-2' : ' btn btn-outline-dark me-2'} onClick={() => { handleProductFilter('electronics'); setActiveNav('electronics') }}>Electronic</button>
